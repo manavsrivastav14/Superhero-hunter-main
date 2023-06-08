@@ -212,7 +212,7 @@ input::placeholder {
 
 #search-results li .hero-name {
      transition: all 0.2s ease;
-     cursor: url(../images/thanos.png),auto;
+     cursor: pointer;
 
 }
 
