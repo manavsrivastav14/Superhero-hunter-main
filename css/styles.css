@@ -2,7 +2,7 @@
      margin: 0;
      padding: 0;
      box-sizing: border-box;
-     cursor: pointer;
+
 }
 
 :root{
@@ -106,7 +106,7 @@ body {
      color: #fff;
      height: 40px;
      font-size: 16px;
-     cursor: url(../images/thanos.png),auto;
+     cursor: pointer;
 
 }
 
@@ -240,7 +240,7 @@ input::placeholder {
 }
 
 .hero-name {
-     /* cursor: url(../images/thanos.png),auto !important; */
+     cursor: pointer;
      font-size: 26px;
 }
 
