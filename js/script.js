@@ -245,31 +245,6 @@ let themeButton = document.getElementById("theme-btn");
 
 themeButton.addEventListener("click",themeChanger);
 
-// IIFE fuction which checks the localStorage and applies the presviously set theme
-(function (){
-     let currentTheme = localStorage.getItem("theme");
-     if(currentTheme == null){
-          root.setAttribute("color-scheme","light");
-          themeButton.innerHTML = `<i class="fa-solid fa-moon"></i>`;
-          themeButton.style.backgroundColor="#410b0b";
-          localStorage.setItem("theme","light");
-          return;
-     }
-
-     switch(currentTheme){
-          case "light":
-               root.setAttribute("color-scheme","light");
-               themeButton.innerHTML = `<i class="fa-solid fa-moon"></i>`;
-               themeButton.style.backgroundColor="#410b0b";
-               break;
-          case "dark":
-               root.setAttribute("color-scheme","dark");
-               themeButton.innerHTML = `<i class="fa-solid fa-sun"></i>`;
-               themeButton.style.backgroundColor="#556f70";
-               break;
-     }
-})();
-
 // function for handling theme button changes
 function themeChanger(){
      let root = document.getElementById("root");

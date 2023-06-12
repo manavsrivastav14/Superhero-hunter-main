@@ -4,18 +4,19 @@ body{
 
 .cards-container{
      justify-content: space-evenly;
-     /* height: 100%; */
      flex-wrap: wrap;
      overflow: hidden;
 }
 .character-info .btn{ 
-     width: 100%;
+     width: 70%;
 }
+
+
 
 .card{
      background-color: hsla(0, 0%, 100%, 0.62);
-     height: 484px;
-     width: 250px;
+     height: fit-content;
+     width: 350px;
      margin: 40px 25px;
      text-align: center;
      border: 1px solid black;
@@ -35,7 +36,11 @@ body{
 }
 
 .remove-btn{
-     border-radius: 0 0 10px 10px;
+     /* border-radius: 0 0 10px 10px; */
+     margin: auto;
+     margin-bottom:15px;
+     width: 70%;
+     
 }
 
 .no-characters{
@@ -43,12 +48,6 @@ body{
      color: var(--text-color);
 }
 
-/* #delete-all{
-     position: absolute;
-     bottom: 0;
-     left: 0;
-     right: 0;
-     margin: auto;
-     z-index: 5;
-     width: 60%;
-} */
+.bg-img{
+     display: flex;
+}
