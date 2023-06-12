@@ -1,18 +1,8 @@
-// Public key
-// 9ab871748d83ae2eb5527ffd69e034de
 
-// Private Key
-// ad79003cf7316d9bd72c6eda71d1c93d7e807e90
-
-// hash
-// 1ad79003cf7316d9bd72c6eda71d1c93d7e807e909ab871748d83ae2eb5527ffd69e034de
-// md5(hash) = d35377547e551cd64a60657d2517bb7f
-
-//*-------------------------------------- Selecting the element from DOM ----------------------------------------------------
 let searchBar = document.getElementById("search-bar");
 let searchResults = document.getElementById("search-results");
 
-// Adding eventListener to search bar
+// Adding eventListener to search bar for fetching details of user entered superhero
 searchBar.addEventListener("input", () => searchHeros(searchBar.value));
 
 // function for API call
@@ -118,7 +108,7 @@ function addToFavourites() {
      // If add to favourites button is cliked then
      if (this.innerHTML == '<i class="fa-solid fa-heart fav-icon"></i> &nbsp; Add to Favourites') {
 
-          // We cretate a new object containg revelent info of hero and push it into favouritesArray
+          // We cretate a new object containg relevant info of hero and push it into favouritesArray
           let heroInfo = {
                name: this.parentElement.parentElement.children[2].children[0].innerHTML,
                description: this.parentElement.parentElement.children[2].children[1].innerHTML,
@@ -261,7 +251,7 @@ themeButton.addEventListener("click",themeChanger);
      if(currentTheme == null){
           root.setAttribute("color-scheme","light");
           themeButton.innerHTML = `<i class="fa-solid fa-moon"></i>`;
-          themeButton.style.backgroundColor="#0D4C92";
+          themeButton.style.backgroundColor="#410b0b";
           localStorage.setItem("theme","light");
           return;
      }
@@ -270,33 +260,41 @@ themeButton.addEventListener("click",themeChanger);
           case "light":
                root.setAttribute("color-scheme","light");
                themeButton.innerHTML = `<i class="fa-solid fa-moon"></i>`;
-               themeButton.style.backgroundColor="#0D4C92";
+               themeButton.style.backgroundColor="#410b0b";
                break;
           case "dark":
                root.setAttribute("color-scheme","dark");
                themeButton.innerHTML = `<i class="fa-solid fa-sun"></i>`;
-               themeButton.style.backgroundColor="#FB2576";
-               themeButton.childNodes[0].style.color = "black";
+               themeButton.style.backgroundColor="#556f70";
                break;
      }
 })();
 
-// function for handeling theme button changes
+// function for handling theme button changes
 function themeChanger(){
      let root = document.getElementById("root");
      // let themeIcon = document.querySelector("#themeButton i");
      if(root.getAttribute("color-scheme") == "light"){
           root.setAttribute("color-scheme","dark");
           themeButton.innerHTML = `<i class="fa-solid fa-sun"></i>`;
-          themeButton.style.backgroundColor="#FB2576";
-          themeButton.childNodes[0].style.color = "black";
+          themeButton.style.backgroundColor="#556f70";
           localStorage.setItem("theme","dark");
      }
      else if(root.getAttribute("color-scheme") == "dark"){
           root.setAttribute("color-scheme","light");
           themeButton.innerHTML = `<i class="fa-solid fa-moon"></i>`;
-          themeButton.style.backgroundColor="#0D4C92";
-          themeButton.childNodes[0].style.color = "white";
+          themeButton.style.backgroundColor="#410b0b";
           localStorage.setItem("theme","light");
      }
 }
+
+// Generating random background images on refreshing or reloading the page
+let bgImage = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAhCFsdiH1TaREWnlXhFhI5peqOM9j7AYYFA&usqp=CAU","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeWYl1h0SORvLcxdfnB07V8JmgLKyfnpHbMQ&usqp=CAU","../images/background-light-img.png"];
+
+function backgroundImageDisplay(){
+     var randomNum = Math.floor(Math.random() * bgImage.length);
+     document.getElementById("bg-img").src = bgImage[randomNum];
+}
+
+// Defining function to be called when page is refreshed/ reloaded
+window.onload = backgroundImageDisplay();
