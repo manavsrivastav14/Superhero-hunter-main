@@ -9,3 +9,5 @@ User can directly visit favourite list via a favourite button where all users fa
 
 Also User can change the theme of the website i.e. either dark or light but by default the theme will be light when webiste is loaded. 
 
+On the home page background image will be diplayed at random whenver the home page is loaded. 
+
