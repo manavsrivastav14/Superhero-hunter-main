@@ -1,4 +1,12 @@
+// Public key
+// 9ab871748d83ae2eb5527ffd69e034de
 
+// Private Key
+// ad79003cf7316d9bd72c6eda71d1c93d7e807e90
+
+// hash
+// 1ad79003cf7316d9bd72c6eda71d1c93d7e807e909ab871748d83ae2eb5527ffd69e034de
+// md5(hash) = d35377547e551cd64a60657d2517bb7f
 
 //*-------------------------------------- Selecting the element from DOM ----------------------------------------------------
 let searchBar = document.getElementById("search-bar");
