@@ -7,34 +7,29 @@
 
 :root{
      /* Light Mode Colors */
-     --background-light-color: #A0E4CB;
-     --navbar-light-background-color: #59C1BD;
-     --navbar-light-color: #0D4C92;
-     --searchBar-light-box-shadow: #0D4C92;
-     --text-light-color: #000;
+     --background-light-color: #f13333;
+     --navbar-light-background-color: #0000005e;
+     --navbar-light-color: #410b0b;
+     
      
      /* Dark Mode Colors */
-     --background-dark-color: #000;
-     --navbar-dark-background-color: #150050;
-     --navbar-dark-color: #FB2576;
-     --searchBar-dark-box-shadow: #fc82b1;
-     --text-dark-color: #fff;
+     --background-dark-color: #6c1010ef;
+     --navbar-dark-background-color: #f13333;
+     --navbar-dark-color: #556f70;
+     
 }
 
 [color-scheme="dark"]{
      --background-color: var(--background-dark-color);
      --navbar-background-color: var(--navbar-dark-background-color);
      --navbar-color: var(--navbar-dark-color);
-     --searchBar-box-shadow: var(--searchBar-dark-box-shadow);
-     --text-color: var(--text-dark-color);
+     
 }
 
 [color-scheme="light"]{
      --background-color: var(--background-light-color);
      --navbar-background-color: var(--navbar-light-background-color);
      --navbar-color: var(--navbar-light-color);
-     --searchBar-box-shadow: var(--searchBar-light-box-shadow);
-     --text-color: var(var(--text-light-color));
 }
 
 
@@ -66,9 +61,8 @@ body {
      background-color: var(--navbar-background-color);
      font-weight: 600;
      letter-spacing: 2px;
-     /* text-shadow: 0px 0px 5px #707d9d; */
      font-size: 30px;
-     padding: 0 20px;
+     padding: 10px 20px;
 }
 
 .navbar-brand {
@@ -83,7 +77,7 @@ body {
 
 /* Right Side */
 .logo {
-     width: 3%;
+     width: 15%;
      min-width: 45px;
 }
 
@@ -121,6 +115,7 @@ body {
 .fav-btn {
      font-size: 16px;
      width: 140px;
+     
 }
 
 .fav-icon {
@@ -132,7 +127,6 @@ body {
      right: 0;
      bottom: 0;
      height: 90%;
-     /* width: auto; */
      filter: blur(2px);
 }
 
@@ -143,11 +137,11 @@ body {
      align-items: center;
      justify-content: center;
      height: 50px;
+     opacity: 0.8;
 }
 
 .search-icon-container {
      background: var(--navbar-background-color);
-     box-shadow: 0px 0px 7px 0px var(--searchBar-box-shadow);
      color: #fff;
      height: 50px;
      width: 50px;
@@ -170,8 +164,6 @@ body {
      height: 50px;
      font-size: 20px;
      border: none;
-     border-left:5px solid var(--navbar-color); 
-     box-shadow: 0px 0px 7px 0px var(--searchBar-box-shadow);
      border-radius: 0 10px 10px 0;
      outline: none;
      padding: 10px;
@@ -195,12 +187,10 @@ input::placeholder {
 
 #search-results {
      min-width: 435px;
-     /* height: 500px; */
      margin-top: 30px;
      list-style: none;
      z-index: 2;
      backdrop-filter: blur(4px);
-     /* overflow-y: scroll; */
 }
 
 #search-results li {
@@ -252,12 +242,8 @@ input::placeholder {
 /*------------------------------------------------------ Background Image ------------------------------------------- */
 .bg-img {
      width: 70%;
-     min-width: 600px;
-     /* height: auto; */
-     position: fixed;
-     bottom: -30px;
-     left: 0;
-     right: 0;
+     min-width: 300px;
+     position: relative;
      margin: auto;
 }
 
@@ -265,7 +251,8 @@ input::placeholder {
 .fav-toast,
 .remove-toast {
      position: absolute;
-     bottom: 100px;
+     top: 20%;
+     left: 80%;
      font-size: 24px;
      width: 350px;
      color: white;
@@ -275,7 +262,8 @@ input::placeholder {
      text-align: center;
      left: 0;
      right: 0;
-     margin: auto;
+     margin-left: auto;
+     margin-right: 10px;
      border-radius: 5px;
 }
 
@@ -295,12 +283,12 @@ input::placeholder {
 }
 
 .remove-toast {
-     background-color: hsl(40, 100%, 61%);
+     background-color: hsl(0, 92%, 35%);
      box-shadow: 0px 0px 3px 3px white;
 }
 
 
-/* ------------------------------------------------Media Queries for different screen sizes ----------------------------- */
+/* ------------------------------------------------For different screen sizes ----------------------------- */
 
 @media screen and (max-width: 576px) {
 

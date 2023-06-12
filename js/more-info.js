@@ -6,7 +6,7 @@ let title = document.getElementById('page-title');
 let heroInfo = JSON.parse(localStorage.getItem("heroInfo"));
 
 // Changing the title of the page according to the characters name
-title.innerHTML = heroInfo.name + " | SH";
+title.innerHTML = heroInfo.name;
 
 window.addEventListener("load", function () {
      // getting the favouritesCharacterIDs for displaying the appropriate button accoring to the existance of character in favourites
@@ -23,7 +23,7 @@ window.addEventListener("load", function () {
                <div class="flex-row hero-name">${heroInfo.name}</div>
                <div class="flex-row hero-img-and-more-info">
                     <img id="portraitImage" class="hero-img" src="${heroInfo.portraitImage}" alt="">
-                    <img style="display:none;" id="landscapeImage" src="${heroInfo.landscapeImage}" alt="">
+                    
                     <div class="flex-col more-info">
                          <div class="flex-row id">
                               <b>ID:</b><span>${heroInfo.id}</span>
@@ -39,8 +39,8 @@ window.addEventListener("load", function () {
                          </div>
                     </div>
                </div>
-               <div class="flex-col hero-discription">
-                    <b>Discription:</b>
+               <div class="flex-col hero-description">
+                    <b>Description:</b>
                     <p>${heroInfo.description != "" ? heroInfo.description : "No Description Available"}</p>
                </div>
                <div style="display:none;">
@@ -61,20 +61,7 @@ window.addEventListener("load", function () {
      addEvent();
 })
 
-// Changing the character image based on the different screen sizes 
-// landscape image for small screen size and potrait image for bigger screen sizes
-window.addEventListener('resize', function () {
-     let portraitImage = document.getElementById('portraitImage');
-     let landscapeImage = document.getElementById('landscapeImage');
 
-     if (document.body.clientWidth < 678) {
-          portraitImage.style.display = "none";
-          landscapeImage.style.display = "block";
-     } else {
-          landscapeImage.style.display = "none";
-          portraitImage.style.display = "block";
-     }
-})
 
 // this function would run after content of the page is loaded
 function addEvent() {
@@ -135,7 +122,7 @@ function addToFavourites() {
           // adding the above created heroInfo object to favouritesArray
           favouritesArray.push(heroInfo);
 
-          // Storing the new favouritesCharactersID map to localStorage after converting to string
+          // Storing the new favouritesCharactersID map to localStorage after converting to json
           localStorage.setItem("favouritesCharacterIDs", JSON.stringify([...favouritesCharacterIDs]));
           // Setting the new favouritesCharacters array which now has the new character 
           localStorage.setItem("favouriteCharacters", JSON.stringify(favouritesArray));
@@ -179,14 +166,13 @@ function addToFavourites() {
                }
           });
           
-          // console.log(newFavouritesArray)
-          
           // Updating the new array in localStorage
           localStorage.setItem("favouriteCharacters",JSON.stringify(newFavouritesArray));
+          // localStorage.setItem("favouritesCharacterIDs", JSON.stringify([...favouritesCharacterIDs]));
           localStorage.setItem("favouritesCharacterIDs", JSON.stringify([...favouritesCharacterIDs]));
           
           
-          // Convering the "Remove from Favourites" button to "Add to Favourites" 
+          // Converting the "Remove from Favourites" button to "Add to Favourites" 
           this.innerHTML = '<i class="fa-solid fa-heart fav-icon"></i> &nbsp; Add to Favourites';
           
           // Displaying the "Remove from Favourites" toast to DOM
@@ -206,48 +192,22 @@ let themeButton = document.getElementById("theme-btn");
 
 themeButton.addEventListener("click",themeChanger);
 
-// IIFE fuction which checks the localStorage and applies the presviously set theme
-(function (){
-     let currentTheme = localStorage.getItem("theme");
-     if(currentTheme == null){
-          root.setAttribute("color-scheme","light");
-          themeButton.innerHTML = `<i class="fa-solid fa-moon"></i>`;
-          themeButton.style.backgroundColor="#0D4C92";
-          localStorage.setItem("theme","light");
-          return;
-     }
-
-     switch(currentTheme){
-          case "light":
-               root.setAttribute("color-scheme","light");
-               themeButton.innerHTML = `<i class="fa-solid fa-moon"></i>`;
-               themeButton.style.backgroundColor="#0D4C92";
-               break;
-          case "dark":
-               root.setAttribute("color-scheme","dark");
-               themeButton.innerHTML = `<i class="fa-solid fa-sun"></i>`;
-               themeButton.style.backgroundColor="#FB2576";
-               themeButton.childNodes[0].style.color = "black";
-               break;
-     }
-})();
-
-// function for handeling theme button changes
+// function for handling theme button changes
 function themeChanger(){
      let root = document.getElementById("root");
      // let themeIcon = document.querySelector("#themeButton i");
      if(root.getAttribute("color-scheme") == "light"){
           root.setAttribute("color-scheme","dark");
           themeButton.innerHTML = `<i class="fa-solid fa-sun"></i>`;
-          themeButton.style.backgroundColor="#FB2576";
-          themeButton.childNodes[0].style.color = "black";
+          themeButton.style.backgroundColor="#556f70";
           localStorage.setItem("theme","dark");
      }
      else if(root.getAttribute("color-scheme") == "dark"){
           root.setAttribute("color-scheme","light");
           themeButton.innerHTML = `<i class="fa-solid fa-moon"></i>`;
-          themeButton.style.backgroundColor="#0D4C92";
-          themeButton.childNodes[0].style.color = "white";
+          themeButton.style.backgroundColor="#410b0b";
           localStorage.setItem("theme","light");
      }
 }
+
+

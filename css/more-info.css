@@ -43,15 +43,18 @@ body {
      gap: 5px;
 }
 
-.hero-discription{
+.hero-description{
      font-size: 1.1rem;
 }
-.hero-discription b{
+.hero-description b{
      font-size: 1.3rem;
 }
 
 .bg-img {
      z-index: -1;
+     display: flex;
+          
+     
 }
 
 @media screen and (max-width: 678px) {
