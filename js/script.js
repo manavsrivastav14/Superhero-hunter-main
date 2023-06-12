@@ -64,7 +64,7 @@ function showSearchedResults(searchedHero) {
                     <div class="flex-row img-info">
                          <img src="${hero.thumbnail.path+'/portrait_medium.' + hero.thumbnail.extension}" alt="">
                          <div class="hero-info">
-                              <a class="character-info" href="./more-info.html">
+                              <a class="character-info" href="./info.html">
                                    <span class="hero-name">${hero.name}</span>
                               </a>
                          </div>
@@ -263,7 +263,7 @@ function themeChanger(){
 }
 
 // Generating random background images on refreshing or reloading the page
-let bgImage = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAhCFsdiH1TaREWnlXhFhI5peqOM9j7AYYFA&usqp=CAU","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeWYl1h0SORvLcxdfnB07V8JmgLKyfnpHbMQ&usqp=CAU","../images/background-light-img.png"];
+let bgImage = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAhCFsdiH1TaREWnlXhFhI5peqOM9j7AYYFA&usqp=CAU","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeWYl1h0SORvLcxdfnB07V8JmgLKyfnpHbMQ&usqp=CAU","https://wallpapers.com/images/featured/bte9zcsa9pvyzpvk.jpg","https://cdn.marvel.com/u/prod/marvel/images/OpenGraph-TW-1200x630.jpg"];
 
 function backgroundImageDisplay(){
      var randomNum = Math.floor(Math.random() * bgImage.length);
