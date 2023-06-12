@@ -149,13 +149,12 @@ function addToFavourites() {
           }
 
           // again setting the new favouritesCharacterIDs array to localStorage
-          favouritesCharacterIDs.set(heroInfo.id, true);
-          // console.log(favouritesCharacterIDs)
-
+          favouritesCharacterIDs.set(heroInfo.id, true);        
           // adding the above created heroInfo object to favouritesArray
           favouritesArray.push(heroInfo);
 
           // Storing the new favouritesCharactersID map to localStorage after converting to string
+          let favCharIdObj = Object.fromEntries(favouritesCharacterIDs);
           localStorage.setItem("favouritesCharacterIDs", JSON.stringify([...favouritesCharacterIDs]));
           // Setting the new favouritesCharacters array which now has the new character 
           localStorage.setItem("favouriteCharacters", JSON.stringify(favouritesArray));
