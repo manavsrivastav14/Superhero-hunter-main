@@ -11,10 +11,8 @@ body{
      width: 70%;
 }
 
-
-
 .card{
-     background-color: hsla(0, 0%, 100%, 0.62);
+     background-color: hsla(0, 21%, 70%, 0.62);
      height: fit-content;
      width: 350px;
      margin: 40px 25px;

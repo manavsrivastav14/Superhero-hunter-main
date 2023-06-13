@@ -3,10 +3,10 @@ let searchBar = document.getElementById("search-bar");
 let searchResults = document.getElementById("search-results");
 
 // Adding eventListener to search bar for fetching details of user entered superhero
-searchBar.addEventListener("input", () => searchHeros(searchBar.value));
+searchBar.addEventListener("input", () => serachCharacter(searchBar.value));
 
 // function for API call
-async function searchHeros(textSearched) {
+async function serachCharacter(textSearched) {
 
      // let PUBLIC_KEY = "9ab871748d83ae2eb5527ffd69e034de";
      // let PRIVATE_KEY = "ad79003cf7316d9bd72c6eda71d1c93d7e807e90";
@@ -20,6 +20,7 @@ async function searchHeros(textSearched) {
           return;
      }
 
+     // Await keyword used to make sure first the promise from async function is resolved i.e. whether textSearched is null or not
      // API call to get the data 
      await fetch(`https://gateway.marvel.com/v1/public/characters?ts=1&nameStartsWith=${textSearched}&apikey=d15f3d056784006ff2303e89b6a54bfa&hash=4f50becee33abe9b4823f74faff53bfb`)
           .then(res => res.json()) //Converting the data into JSON format
@@ -27,15 +28,8 @@ async function searchHeros(textSearched) {
 }
 
 // Function for displaying the searched results in DOM
-// An array is accepted as argument 
-// SearchedHero is the array of objects which matches the string entered in the searched bar
 function showSearchedResults(searchedHero) {
-
-
-     // IDs of the character which are added in the favourites 
-     // Used for displaying the appropriate button in search results i.e
-     // if the id exist in this array then we display "Remove from favourites" button otherwise we display "Add to favourites button"
-     // favouritesCharacterIDs is a map which contains id of character as key and true as value 
+     // Checks whether the characters displayed already have their ID in favourite charachter IDs list or not and if yes then apropriately diplay add to favourite or remove from favourite button
      let favouritesCharacterIDs = localStorage.getItem("favouritesCharacterIDs");
      if(favouritesCharacterIDs == null){
           // If we did't got the favouritesCharacterIDs then we iniitalize it with empty map
@@ -93,7 +87,7 @@ function showSearchedResults(searchedHero) {
      events();
 }
 
-// Function for attacthing eventListener to buttons
+// Function for attacthing eventListener to buttons of all the elements in the array
 function events() {
      let favouriteButton = document.querySelectorAll(".add-to-fav-btn");
      favouriteButton.forEach((btn) => btn.addEventListener("click", addToFavourites));
@@ -102,7 +96,7 @@ function events() {
      characterInfo.forEach((character) => character.addEventListener("click", addInfoInLocalStorage))
 }
 
-// Function invoked when "Add to Favourites" button or "Remvove from favourites" button is click appropriate action is taken accoring to the button clicked
+// Function is called when add to favourite or remove from favourite button is clicked and appropriate action is executed
 function addToFavourites() {
 
      // If add to favourites button is cliked then
